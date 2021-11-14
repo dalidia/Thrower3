@@ -24,6 +24,11 @@ repositories {
     mavenCentral()
 }
 
+// Add dependency modules
+dependencies {
+    implementation("org.soot-oss:soot:4.2.1")
+}
+
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
     pluginName.set(properties("pluginName"))
