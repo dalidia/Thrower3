@@ -1,0 +1,61 @@
+
+plugins {
+    // Java support
+    id 'java'
+    // Gradle IntelliJ Plugin
+    id 'org.jetbrains.intellij' version '1.2.1'
+    // Gradle Changelog Plugin
+    id "org.jetbrains.changelog" version "1.3.0"
+    // Gradle Qodana Plugin
+    id "org.jetbrains.qodana" version "0.1.12"
+}
+
+def properties(key) {
+    project.findProperty(key).toString()
+}
+
+group = properties('pluginGroup')
+version = properties('pluginVersion')
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+
+//    pluginName = properties('pluginGroup')
+//    version = properties('platformVersion')
+//    downloadSources = properties('platformDownloadSources')
+//
+//
+//    project.setProperty("pluginName", properties('pluginGroup'))
+//    project.setProperty("version", properties('platformVersion'))
+//    project.setProperty("type", property("type"))
+//    project.setProperty("downloadSources", properties('platformDownloadSources'))
+//    project.setProperty("updateSinceUntilBuild", true)
+//
+//    // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
+//    plugins.set(project.property("platformPlugins"))
+//    project.property("platformPlugins")
+//    property("platformPlugins")
+//
+//    version = '2020.3.4'
+//    plugins = ['com.intellij.java']
+}
+
+tasks {
+
+}
+
+buildSearchableOptions {
+    enabled = false
+}
+
+patchPluginXml {
+    version = project.version
+    sinceBuild = '203'
+    untilBuild = '212.*'
+}
